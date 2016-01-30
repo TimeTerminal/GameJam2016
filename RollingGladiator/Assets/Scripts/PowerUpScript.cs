@@ -34,6 +34,11 @@ public class PowerUpScript : MonoBehaviour {
 				other.gameObject.GetComponent<InputController> ().myRigidBody.mass /= 2;
 				Destroy (this.gameObject);
 			break;
+
+			case "Dash":
+				other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10);
+				Destroy (this.gameObject);
+				break;
 			}
 		}
 	}
