@@ -41,7 +41,7 @@ public class InputController : MonoBehaviour {
 		if (Time.timeScale == 0.01f) {
 			currentBulletTimer += Time.deltaTime;      
 		}  
-		if ( currentBulletTimer > 0.02f ) {
+		if ( currentBulletTimer > 0.03f ) {
 			currentBulletTimer = 0;
 			Time.timeScale = 1.0f;
 		}
