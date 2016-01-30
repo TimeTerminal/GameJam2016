@@ -9,6 +9,10 @@ public class CameraScript : MonoBehaviour {
 	Vector3 centerPos = new Vector3(0,0,0);
 	Vector3 cameraPos = new Vector3(0,0,0);
 
+	public float shake = 0.0f;
+	public float shakeAmount = 0.7f;
+	public float decreaseFactor = 1.0f;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -30,6 +34,13 @@ public class CameraScript : MonoBehaviour {
 		if (cameraPos.y < 6)
 			cameraPos.y = 6;
 
+		if (shake > 0) {
+			cameraPos += Random.insideUnitSphere * shakeAmount;
+			shake -= Time.deltaTime * decreaseFactor;
+			
+		} else {
+			shake = 0.0f;
+		}
 
 		transform.position = cameraPos;
 		transform.LookAt (centerPos);

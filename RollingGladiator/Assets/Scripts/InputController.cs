@@ -101,6 +101,7 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Player" ) {
 			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
 				Debug.Log ("hit"+ playerNumber);
+				Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 				collision.gameObject.GetComponent<Rigidbody>().velocity += 4 * myRigidBody.velocity;
 				collision.gameObject.GetComponent<InputController>().myState = "hit";
 				collision.gameObject.GetComponent<InputController>().stateChangeBuffer = 0;
