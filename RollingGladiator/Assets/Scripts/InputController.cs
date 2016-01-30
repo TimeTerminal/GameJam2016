@@ -19,18 +19,27 @@ public class InputController : MonoBehaviour {
 	public bool isGrounded;
 
 	public GameObject child;
-   
+
+	public string myState;
+	public int stateChangeBuffer;
+
 	Vector3 gravity;
+	Vector3 prevVelocity;
 	// Use this for initialization
 	void Start () {
 		myRigidBody = GetComponent<Rigidbody> ();
 		controller = GetComponent<CharacterController> ();
 		lastPosition = transform.position;
+
+		myState = "default";
 	}
-	
 	// Update is called once per frame
 	void FixedUpdate () {
-
+		if (myState == "hit") {
+			stateChangeBuffer++;
+			if( stateChangeBuffer > 60 )
+				myState = "default";
+		}
 		heading = transform.position - lastPosition;
 		heading.Normalize ();
 		Vector3 movement = Vector3.zero;
@@ -89,6 +98,14 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Ground") {
 			isGrounded = true;
 		}
+		if (collision.gameObject.tag == "Player" ) {
+			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
+				Debug.Log ("hit"+ playerNumber);
+				collision.gameObject.GetComponent<Rigidbody>().velocity = 4 * myRigidBody.velocity;
+				collision.gameObject.GetComponent<InputController>().myState = "hit";
+				collision.gameObject.GetComponent<InputController>().stateChangeBuffer = 0;
+			}
+		}
 	}
 	void OnCollision(Collision other){
 		if (other.gameObject.tag == "Ground") {
@@ -99,5 +116,11 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Ground") {
 			isGrounded = false;
 		}
+	}
+
+	public float instantaneousVelocity(){
+		float difference = Vector3.Distance( myRigidBody.velocity , prevVelocity );
+		difference = Mathf.Abs (difference);
+		return difference;
 	}
 }
