@@ -38,17 +38,17 @@ public class InputController : MonoBehaviour {
 
 		if (playerNumber == 1) {
 
-			if( Input.GetKey ( KeyCode.Space )){
-				vertMovement = new Vector3( 0.0f, 16.0f, 0.0f );
+			if( Input.GetKeyDown ( KeyCode.Space ) && isGrounded ){
+				vertMovement = Vector3.up;
+				isGrounded = false;
 			}
 			float moveHorizontal = Input.GetAxis ("Horizontal2");
 			float moveVertical = Input.GetAxis ("Vertical2");
-			
-			movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 			if( isGrounded )
-				movement = movement * speed;
+				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
-			vertMovement = movement * airSpeed;
+			movement *= speed;
+			vertMovement = vertMovement * airSpeed;
 			myRigidBody.AddForce (movement + vertMovement);
 //				transform.Rotate(0,Input.GetAxis("Horizontal2")*rotateSpeed*Time.deltaTime,0);
 //				if( Input.GetAxis("Vertical2") > 0 || Input.GetAxis("Vertical2") < 0 ){
@@ -68,20 +68,18 @@ public class InputController : MonoBehaviour {
 //			if( isGrounded )
 //				rb.AddForce (movement * speed);
 		} else if (playerNumber == 2) {
-			float moveHorizontal = Input.GetAxisRaw ("Horizontal");
-			float moveVertical = Input.GetAxisRaw ("Vertical");
-
-			if( Input.GetKey (KeyCode.RightShift) ){
-				speed++;
-				if( speed > 10 )
-					speed = 10;
-			} else {
-				speed--;
-				if( speed < 3 )
-					speed = 3;
+			if( Input.GetKeyDown ( KeyCode.RightControl ) && isGrounded ){
+				vertMovement = Vector3.up;
+				isGrounded = false;
 			}
-
-			movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			float moveVertical = Input.GetAxis ("Vertical");
+			if( isGrounded )
+				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			
+			movement *= speed;
+			vertMovement = vertMovement * airSpeed;
+			myRigidBody.AddForce (movement + vertMovement);
 
 		}
 		lastPosition = transform.position;
