@@ -24,7 +24,7 @@ public class CameraScript : MonoBehaviour {
 
 		cameraPos = centerPos;
 		cameraPos.y = Vector3.Distance(player1.transform.position, player2.transform.position);
-		cameraPos.x -= cameraPos.y;
+		//cameraPos.x -= cameraPos.y;
 		cameraPos.z -= cameraPos.y;
 
 		if (cameraPos.y < 6)

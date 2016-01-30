@@ -17,7 +17,6 @@ public class BoundScript : MonoBehaviour {
 		if (other.gameObject.tag == "Player" || other.gameObject.tag == "puck" ) {
 			other.gameObject.transform.position = new Vector3( 0, 4, 0 );
 			other.gameObject.GetComponent<InputController>().myRigidBody.velocity = Vector3.zero;
-
 		}
 	}
 }
