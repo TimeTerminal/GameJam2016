@@ -8,6 +8,8 @@ public class InputController : MonoBehaviour {
 	public float speed;
 	public float airSpeed;
 
+	float currentBulletTimer = 0;
+
 	Vector3 heading;
 	Vector3 lastPosition;
 
@@ -33,6 +35,18 @@ public class InputController : MonoBehaviour {
 
 		myState = "default";
 	}
+
+	void Update(){
+		Time.captureFramerate = 60;
+		if (Time.timeScale == 0.01f) {
+			currentBulletTimer += Time.deltaTime;      
+		}  
+		if ( currentBulletTimer > 0.02f ) {
+			currentBulletTimer = 0;
+			Time.timeScale = 1.0f;
+		}
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (myState == "hit") {
@@ -40,6 +54,9 @@ public class InputController : MonoBehaviour {
 			if( stateChangeBuffer > 60 )
 				myState = "default";
 		}
+
+
+
 		heading = transform.position - lastPosition;
 		heading.Normalize ();
 		Vector3 movement = Vector3.zero;
@@ -101,13 +118,24 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Player" ) {
 			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
 				Debug.Log ("hit"+ playerNumber);
+
+				SlowTime();
+
 				Camera.main.GetComponent<CameraScript>().shake = 0.75f;
+
+
+
 				collision.gameObject.GetComponent<Rigidbody>().velocity += 4 * myRigidBody.velocity;
 				collision.gameObject.GetComponent<InputController>().myState = "hit";
 				collision.gameObject.GetComponent<InputController>().stateChangeBuffer = 0;
 			}
 		}
 	}
+
+	void SlowTime(){
+		Time.timeScale = 0.01f;
+	}
+
 	void OnCollision(Collision other){
 		if (other.gameObject.tag == "Ground") {
 			isGrounded = true;
