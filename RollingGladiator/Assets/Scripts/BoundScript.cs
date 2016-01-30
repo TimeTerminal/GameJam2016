@@ -14,9 +14,8 @@ public class BoundScript : MonoBehaviour {
 	}
 
 	void OnTriggerExit( Collider other ){
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player" || other.gameObject.tag == "puck" ) {
 			other.gameObject.GetComponent<InputController>().speed = 0;
-			other.gameObject.GetComponent<Rigidbody>().velocity = new Vector3( 0 , 0 , 0 );
 			other.gameObject.transform.position = new Vector3( 0, 4, 0 );
 		}
 	}
