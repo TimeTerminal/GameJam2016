@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PowerUpScript : MonoBehaviour {
 	public string powerUpType;
+
+	Vector3 newScale;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,20 +18,22 @@ public class PowerUpScript : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		
 		if (other.gameObject.tag == "Player") {
-			if (powerUpType == "Mega") {
-				Vector3 newScale = other.gameObject.transform.localScale;
+			switch(powerUpType){
+			case "Mega": 
+				newScale = other.gameObject.transform.localScale;
 				newScale = newScale * 2;
 				other.gameObject.transform.localScale = newScale;
 				other.gameObject.GetComponent<InputController> ().myRigidBody.mass *= 2;
 				Destroy (this.gameObject);
-		
-			} else if (powerUpType == "Mini") {
-				Vector3 newScale = other.gameObject.transform.localScale;
+			break;
+			
+			case "Mini":
+				newScale = other.gameObject.transform.localScale;
 				newScale = newScale / 2;
 				other.gameObject.transform.localScale = newScale;
 				other.gameObject.GetComponent<InputController> ().myRigidBody.mass /= 2;
 				Destroy (this.gameObject);
-
+			break;
 			}
 		}
 	}
