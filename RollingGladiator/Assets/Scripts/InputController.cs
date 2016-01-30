@@ -47,7 +47,7 @@ public class InputController : MonoBehaviour {
 
 		if (playerNumber == 1) {
 
-			if( Input.GetKeyDown ( KeyCode.Space ) && isGrounded ){
+			if( Input.GetButtonDown ("Jump")  && isGrounded ){
 				vertMovement = Vector3.up;
 				isGrounded = false;
 			}
@@ -77,7 +77,7 @@ public class InputController : MonoBehaviour {
 //			if( isGrounded )
 //				rb.AddForce (movement * speed);
 		} else if (playerNumber == 2) {
-			if( Input.GetKeyDown ( KeyCode.RightControl ) && isGrounded ){
+			if( Input.GetButtonDown("Jump2") && isGrounded ){
 				vertMovement = Vector3.up;
 				isGrounded = false;
 			}
