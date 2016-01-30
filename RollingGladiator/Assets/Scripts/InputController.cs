@@ -6,15 +6,13 @@ public class InputController : MonoBehaviour {
 
 	public int playerNumber;
 	public float speed;
-	public float acceleration;
-
-	float rotateSpeed;
-	public float currentSpeed;
+	public float airSpeed;
 
 	Vector3 heading;
 	Vector3 lastPosition;
 
 	CharacterController controller;
+	public Rigidbody myRigidBody;
 
 	List<GameObject> players;
 
@@ -25,57 +23,48 @@ public class InputController : MonoBehaviour {
 	Vector3 gravity;
 	// Use this for initialization
 	void Start () {
+		myRigidBody = GetComponent<Rigidbody> ();
 		controller = GetComponent<CharacterController> ();
 		lastPosition = transform.position;
-	
-		rotateSpeed = speed * 5;
-		currentSpeed = speed;
-
-		gravity = new Vector3 (0, -9.8f, 0);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		child.GetComponent<Animator> ().SetBool ("isJumping", false);
-		isGrounded = true;
+
 		heading = transform.position - lastPosition;
 		heading.Normalize ();
-		
-		if (child.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("GroundPound")) {
-			child.GetComponent<Animator>().SetBool ("animComplete", true );
-		}
+		Vector3 movement = Vector3.zero;
+		Vector3 vertMovement = Vector3.zero;
 
 		if (playerNumber == 1) {
-			float moveHorizontal = 0.0f;//Input.GetAxisRaw ("Horizontal2");
-			float moveVertical = Input.GetAxisRaw ("Vertical2");
-
 
 			if( Input.GetKey ( KeyCode.Space )){
-				child.GetComponent<Animator>().SetBool( "isJumping", true );
-				child.GetComponent<Animator>().SetBool ("animComplete", false );
-				isGrounded = false;
+				vertMovement = new Vector3( 0.0f, 16.0f, 0.0f );
 			}
-			//Debug.Log ( child.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0) );
-			if( !child.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName ("GroundPound")  ) {
-				Vector3 moveDirection;
+			float moveHorizontal = Input.GetAxis ("Horizontal2");
+			float moveVertical = Input.GetAxis ("Vertical2");
+			
+			movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			if( isGrounded )
+				movement = movement * speed;
 
-				transform.Rotate(0,Input.GetAxis("Horizontal2")*rotateSpeed*Time.deltaTime,0);
-				if( Input.GetAxis("Vertical2") > 0 || Input.GetAxis("Vertical2") < 0 ){
-					currentSpeed = currentSpeed + acceleration;
-					if( currentSpeed > 75 )
-						currentSpeed = 75;
-				} else {
-					currentSpeed = currentSpeed - acceleration;
-					if( currentSpeed < 25 )
-						currentSpeed = speed;
-				}
-				moveDirection = transform.forward*Input.GetAxis("Vertical2")*currentSpeed;
-				moveDirection += gravity;
-				// moves the character in horizontal direction
-				controller.Move(moveDirection*Time.deltaTime-Vector3.up*0.1f);  
-				child.GetComponent<Animator>().SetFloat ("forwardSpeed",Input.GetAxisRaw("Vertical2") );
-
-			}
+			vertMovement = movement * airSpeed;
+			myRigidBody.AddForce (movement + vertMovement);
+//				transform.Rotate(0,Input.GetAxis("Horizontal2")*rotateSpeed*Time.deltaTime,0);
+//				if( Input.GetAxis("Vertical2") > 0 || Input.GetAxis("Vertical2") < 0 ){
+//					currentSpeed = currentSpeed + acceleration;
+//					if( currentSpeed > 75 )
+//						currentSpeed = 75;
+//				} else {
+//					currentSpeed = currentSpeed - acceleration;
+//					if( currentSpeed < 25 )
+//						currentSpeed = speed;
+//				}
+//				moveDirection = transform.forward*Input.GetAxis("Vertical2")*currentSpeed;
+//				moveDirection += gravity;
+//				// moves the character in horizontal direction
+//				controller.Move(moveDirection*Time.deltaTime-Vector3.up*0.1f);  
+//				child.GetComponent<Animator>().SetFloat ("forwardSpeed",Input.GetAxisRaw("Vertical2") );
 //			if( isGrounded )
 //				rb.AddForce (movement * speed);
 		} else if (playerNumber == 2) {
@@ -92,17 +81,21 @@ public class InputController : MonoBehaviour {
 					speed = 3;
 			}
 
-			Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
 		}
 		lastPosition = transform.position;
 	}
 
 	void OnCollisionEnter(Collision collision) {
-
+		if (collision.gameObject.tag == "Ground") {
+			isGrounded = true;
+		}
 	}
 	void OnCollision(Collision other){
-
+		if (other.gameObject.tag == "Ground") {
+			isGrounded = true;
+		}
 	}
 	void OnCollisionExit(Collision collision) {
 		if (collision.gameObject.tag == "Ground") {
