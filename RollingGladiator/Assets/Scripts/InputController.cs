@@ -15,6 +15,14 @@ public class InputController : MonoBehaviour {
 
 	float currentBulletTimer = 0;
 
+	//Actual countdown
+	private int countDown;
+
+	//Text for countdown
+	public Text countdownText;
+
+	public AudioSource collisionSource;
+
 	Vector3 heading;
 	Vector3 lastPosition;
 
@@ -50,6 +58,9 @@ public class InputController : MonoBehaviour {
 		lastPosition = transform.position;
 
 		myState = "default";
+
+		AudioSource collisionAudio = GetComponent<AudioSource> ();
+		countDown = 4;
 	}
 
 	void Update(){
@@ -85,13 +96,16 @@ public class InputController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		for (int i = 4; i > 0; i--) {
+			countDown --;
+			print ("Countdown = " + countDown);
+		}
+
 		if (myState == "hit") {
 			stateChangeBuffer++;
 			if( stateChangeBuffer > 60 )
 				myState = "default";
 		}
-
-
 
 		heading = transform.position - lastPosition;
 		heading.Normalize ();
@@ -145,6 +159,11 @@ public class InputController : MonoBehaviour {
 
 		}
 		lastPosition = transform.position;
+
+		countdownText.text = countDown.ToString ();
+		countdownText.fontSize = 25;
+		countdownText.color = new Color (255, 255, 255);
+		countdownText.rectTransform.sizeDelta = new Vector2 (Screen.width / 2, Screen.height - 25);
 	}
 
 	void OnCollisionEnter(Collision collision) {
@@ -159,14 +178,19 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Player" ) {
 			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
 				Debug.Log ("hit"+ playerNumber);
-				StartCoroutine(ShowMessage("SMASH", 0.3f));
-				SlowTime();
+
+
+				if (myRigidBody.velocity.magnitude > 15)
+				{
+					StartCoroutine(ShowMessage("SMASH", 0.3f));
+					SlowTime();
+				}
 
 				GamePad.SetVibration (0, 1.0f, 1.0f);
 				GamePad.SetVibration (playerIndex, 1.0f, 1.0f);
 
                 Camera.main.GetComponent<CameraScript>().shake = 0.75f;
-
+				collisionSource.Play ();
 
 
 				collision.gameObject.GetComponent<Rigidbody>().velocity += 4 * myRigidBody.velocity;
