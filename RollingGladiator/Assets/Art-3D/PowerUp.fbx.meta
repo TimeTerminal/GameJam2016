@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 2e8887d29731620459efc486921d2c17
+timeCreated: 1454197089
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: group2
+    100002: polySurface4
+    100004: //RootNode
+    100006: pSphere1
+    100008: pSphere2
+    100010: pSphere3
+    100012: pSphere4
+    100014: pSphere5
+    100016: pSphere6
+    100018: pSphere7
+    100020: pSphere8
+    100022: pSphere9
+    100024: pTorus1
+    400000: group2
+    400002: polySurface4
+    400004: //RootNode
+    400006: pSphere1
+    400008: pSphere2
+    400010: pSphere3
+    400012: pSphere4
+    400014: pSphere5
+    400016: pSphere6
+    400018: pSphere7
+    400020: pSphere8
+    400022: pSphere9
+    400024: pTorus1
+    2300000: polySurface4
+    2300002: pSphere1
+    2300004: pSphere2
+    2300006: pSphere3
+    2300008: pSphere4
+    2300010: pSphere5
+    2300012: pSphere6
+    2300014: pSphere7
+    2300016: pSphere8
+    2300018: pSphere9
+    2300020: pTorus1
+    3300000: polySurface4
+    3300002: pSphere1
+    3300004: pSphere2
+    3300006: pSphere3
+    3300008: pSphere4
+    3300010: pSphere5
+    3300012: pSphere6
+    3300014: pSphere7
+    3300016: pSphere8
+    3300018: pSphere9
+    3300020: pTorus1
+    4300000: pSphere1
+    4300002: polySurface4
+    4300004: pSphere2
+    4300006: pTorus1
+    4300008: pSphere3
+    4300010: pSphere4
+    4300012: pSphere5
+    4300014: pSphere6
+    4300016: pSphere7
+    4300018: pSphere8
+    4300020: pSphere9
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pSphere2
+        weight: 1
+      - path: group2/pSphere3
+        weight: 1
+      - path: group2/pSphere4
+        weight: 1
+      - path: group2/pSphere5
+        weight: 1
+      - path: group2/pSphere6
+        weight: 1
+      - path: group2/pSphere7
+        weight: 1
+      - path: group2/pSphere8
+        weight: 1
+      - path: group2/pSphere9
+        weight: 1
+      - path: group2/pTorus1
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

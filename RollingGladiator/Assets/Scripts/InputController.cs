@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class InputController : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class InputController : MonoBehaviour {
 
 	CharacterController controller;
 	public Rigidbody myRigidBody;
+
+	public Text guiText;
 
 	List<GameObject> players;
 
@@ -118,8 +121,11 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Player" ) {
 			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
 				Debug.Log ("hit"+ playerNumber);
-
+				StartCoroutine(ShowMessage("SMASH", 0.3f));
 				SlowTime();
+
+
+
 
 				Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 
@@ -134,6 +140,13 @@ public class InputController : MonoBehaviour {
 
 	void SlowTime(){
 		Time.timeScale = 0.01f;
+	}
+
+	IEnumerator ShowMessage (string message, float delay) {
+		guiText.text = message;
+		guiText.enabled = true;
+		yield return new WaitForSeconds(delay);
+		guiText.enabled = false;
 	}
 
 	void OnCollision(Collision other){
