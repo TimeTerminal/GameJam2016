@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using XInputDotNetPure; // Required in C#
 
 public class InputController : MonoBehaviour {
 
@@ -125,8 +126,9 @@ public class InputController : MonoBehaviour {
 				SlowTime();
 
 
+				XInputDotNetPure.GamePad.SetVibration(0, 0, 1);
 
-
+				
 				Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 
 
