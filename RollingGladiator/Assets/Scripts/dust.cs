@@ -21,7 +21,7 @@ public class dust : MonoBehaviour {
 		if (GetComponent<InputController> ().isGrounded == true && Mathf.Round(GetComponent<Rigidbody>().velocity.y) == 0) {
 			Vector3 velocity = GetComponent<Rigidbody>().velocity;
 			float speed = Mathf.Sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
-			print("speed is " + speed);
+			//print("speed is " + speed);
 			if (speed > 5.0) {
 				Vector3 position = this.transform.position;
 				position.y -= 1;

@@ -129,7 +129,7 @@ public class InputController : MonoBehaviour {
 				SlowTime();
 
 
-				GamePad.SetVibration(0,testA,testB);
+			//	GamePad.SetVibration(0,testA,testB);
 				
 				
 				Camera.main.GetComponent<CameraScript>().shake = 0.75f;

@@ -1,39 +1,49 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CameraScript : MonoBehaviour {
 
-	public GameObject player1;
-	public GameObject player2;
-
+	public GameObject[] players;
+	
 	Vector3 centerPos = new Vector3(0,0,0);
 	Vector3 cameraPos = new Vector3(0,0,0);
-
-	public float shake = 0.0f;
+	
+	public float shake;
 	public float shakeAmount = 0.7f;
 	public float decreaseFactor = 1.0f;
-
+	
 	// Use this for initialization
 	void Start () {
+		players = GameObject.FindGameObjectsWithTag("Player");
+		print(players);
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		// Add players as required
-		centerPos.x = (player1.transform.position.x + player2.transform.position.x)/2;
-		centerPos.y = (player1.transform.position.y + player2.transform.position.y)/2;
-		centerPos.z = (player1.transform.position.z + player2.transform.position.z)/2;
+		centerPos = Vector3.zero;
+		int i = 0;
+		foreach (GameObject player in players) {
+			print(centerPos+" "+player.transform.position);
+			centerPos += player.transform.position;
+			i++;
+		}
+		centerPos /= i;
 
 		cameraPos = centerPos;
-		cameraPos.y = Vector3.Distance(player1.transform.position, player2.transform.position);
+		cameraPos.y = 0;
+
+		foreach (GameObject player in players) {
+			cameraPos.y += Vector3.Distance(centerPos, player.transform.position);
+		}
+		cameraPos.y = cameraPos.y/i;
+
 		//cameraPos.x -= cameraPos.y;
-		cameraPos.z -= cameraPos.y;
-
-		if (cameraPos.y < 6)
-			cameraPos.y = 6;
-
+		cameraPos.z -= 2*cameraPos.y;
+		cameraPos.y += 2*centerPos.y;
+		
+		
 		if (shake > 0) {
 			cameraPos += Random.insideUnitSphere * shakeAmount;
 			shake -= Time.deltaTime * decreaseFactor;
@@ -41,14 +51,9 @@ public class CameraScript : MonoBehaviour {
 		} else {
 			shake = 0.0f;
 		}
-
+		
 		transform.position = cameraPos;
 		transform.LookAt (centerPos);
-
-		//Camera.main.transform.position.x = p;
-		//Camera.main.transform.position.y = player2.transform.position.x - player1.transform.position.x;
-		//Camera.main.transform.position.z = player2.transform.position.z - player1.transform.position.z;
-
 
 	}
 }
