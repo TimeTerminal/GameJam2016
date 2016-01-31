@@ -60,13 +60,12 @@ public class InputController : MonoBehaviour {
 		if ( currentBulletTimer > 0.03f ) {
 			currentBulletTimer = 0;
 			Time.timeScale = 1.0f;
-			if(xboxRemote)
-			{
+			
             	GamePad.SetVibration(playerIndex, 0.0f, 0.0f);
             	GamePad.SetVibration(0, 0.0f, 0.0f);
-			}
+			
         }
-		if (xboxRemote) {
+
 			if (!playerIndexSet || !prevState.IsConnected) {
 				for (int i = 0; i < 4; ++i) {
 					PlayerIndex testPlayerIndex = (PlayerIndex)i;
@@ -81,7 +80,7 @@ public class InputController : MonoBehaviour {
 		
 			prevState = state;
 			state = GamePad.GetState (playerIndex);
-		}
+		
 	}
 	
 	// Update is called once per frame
@@ -152,16 +151,20 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Ground") {
 			isGrounded = true;
 		}
+
+		if (collision.gameObject.tag == "GrandSlam") {
+			Camera.main.GetComponent<CameraScript>().shake = 0.75f;
+		}
+
 		if (collision.gameObject.tag == "Player" ) {
 			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
 				Debug.Log ("hit"+ playerNumber);
 				//StartCoroutine(ShowMessage("SMASH", 0.3f));
 				SlowTime();
 
-				if (xboxRemote) {
-					GamePad.SetVibration (0, 1.0f, 1.0f);
-					GamePad.SetVibration (playerIndex, 1.0f, 1.0f);
-				}
+				GamePad.SetVibration (0, 1.0f, 1.0f);
+				GamePad.SetVibration (playerIndex, 1.0f, 1.0f);
+
                 Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 
 
