@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:RollingGladiator/Assets/Animation/Materials.meta
 guid: ceea8601aabd5440ba5637302a14b5b2
 folderAsset: yes
 timeCreated: 1454258015
+=======
+guid: 801cd278bbfff8a45b393048d00adc40
+folderAsset: yes
+timeCreated: 1454260698
+>>>>>>> master:RollingGladiator/Assets/Animation/Materials.meta
 licenseType: Free
 DefaultImporter:
   userData: 
