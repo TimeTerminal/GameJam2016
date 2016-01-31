@@ -56,7 +56,8 @@ public class InputController : MonoBehaviour {
 		if ( currentBulletTimer > 0.03f ) {
 			currentBulletTimer = 0;
 			Time.timeScale = 1.0f;
-		}
+            GamePad.SetVibration(playerIndex, 0.0f, 0.0f);
+        }
 
 		if (!playerIndexSet || !prevState.IsConnected)
 		{
@@ -75,7 +76,6 @@ public class InputController : MonoBehaviour {
 		
 		prevState = state;
 		state = GamePad.GetState(playerIndex);
-		GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
 	}
 	
 	// Update is called once per frame
@@ -153,10 +153,10 @@ public class InputController : MonoBehaviour {
 				SlowTime();
 
 
-				GamePad.SetVibration(0,testA,testB);
-				
-				
-				Camera.main.GetComponent<CameraScript>().shake = 0.75f;
+                GamePad.SetVibration(playerIndex, 1.0f, 1.0f);
+
+
+                Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 
 
 
