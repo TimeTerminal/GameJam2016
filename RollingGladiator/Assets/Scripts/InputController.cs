@@ -33,6 +33,10 @@ public class InputController : MonoBehaviour {
 	public int stateChangeBuffer;
 
 	bool playerIndexSet = false;
+
+	//TOGGLE XBOX COMMANDS
+	bool xboxRemote = false;
+
 	PlayerIndex playerIndex;
 	GamePadState state;
 	GamePadState prevState;
@@ -56,28 +60,28 @@ public class InputController : MonoBehaviour {
 		if ( currentBulletTimer > 0.03f ) {
 			currentBulletTimer = 0;
 			Time.timeScale = 1.0f;
-            GamePad.SetVibration(playerIndex, 0.0f, 0.0f);
-            GamePad.SetVibration(0, 0.0f, 0.0f);
-        }
-
-		if (!playerIndexSet || !prevState.IsConnected)
-		{
-			for (int i = 0; i < 4; ++i)
+			if(xboxRemote)
 			{
-				PlayerIndex testPlayerIndex = (PlayerIndex)i;
-				GamePadState testState = GamePad.GetState(testPlayerIndex);
-				if (testState.IsConnected)
-				{
-					Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
-					playerIndex = testPlayerIndex;
-					playerIndexSet = true;
+            	GamePad.SetVibration(playerIndex, 0.0f, 0.0f);
+            	GamePad.SetVibration(0, 0.0f, 0.0f);
+			}
+        }
+		if (xboxRemote) {
+			if (!playerIndexSet || !prevState.IsConnected) {
+				for (int i = 0; i < 4; ++i) {
+					PlayerIndex testPlayerIndex = (PlayerIndex)i;
+					GamePadState testState = GamePad.GetState (testPlayerIndex);
+					if (testState.IsConnected) {
+						Debug.Log (string.Format ("GamePad found {0}", testPlayerIndex));
+						playerIndex = testPlayerIndex;
+						playerIndexSet = true;
+					}
 				}
 			}
+		
+			prevState = state;
+			state = GamePad.GetState (playerIndex);
 		}
-		
-		prevState = state;
-		state = GamePad.GetState(playerIndex);
-		
 	}
 	
 	// Update is called once per frame
@@ -154,9 +158,10 @@ public class InputController : MonoBehaviour {
 				StartCoroutine(ShowMessage("SMASH", 0.3f));
 				SlowTime();
 
-                
-                GamePad.SetVibration(0, 1.0f, 1.0f);
-                GamePad.SetVibration(playerIndex, 1.0f, 1.0f);
+				if (xboxRemote) {
+					GamePad.SetVibration (0, 1.0f, 1.0f);
+					GamePad.SetVibration (playerIndex, 1.0f, 1.0f);
+				}
                 Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 
 
