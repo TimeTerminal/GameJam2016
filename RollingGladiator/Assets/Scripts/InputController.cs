@@ -112,6 +112,7 @@ public class InputController : MonoBehaviour {
 		heading.Normalize ();
 		Vector3 movement = Vector3.zero;
 		Vector3 vertMovement = Vector3.zero;
+		Vector3 dodgeForce = Vector3.zero;
 
 		if (playerNumber == 1) {
 
@@ -124,9 +125,13 @@ public class InputController : MonoBehaviour {
 			if( isGrounded )
 				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
+			if (Input.GetKeyDown("x")){
+				dodgeForce = movement*1500;
+			}
+
 			movement *= speed;
 			vertMovement = vertMovement * airSpeed;
-			myRigidBody.AddForce (movement + vertMovement);
+			myRigidBody.AddForce (movement + vertMovement + dodgeForce);
 //				transform.Rotate(0,Input.GetAxis("Horizontal2")*rotateSpeed*Time.deltaTime,0);
 //				if( Input.GetAxis("Vertical2") > 0 || Input.GetAxis("Vertical2") < 0 ){
 //					currentSpeed = currentSpeed + acceleration;
@@ -153,10 +158,14 @@ public class InputController : MonoBehaviour {
 			float moveVertical = Input.GetAxis ("Vertical");
 			if( isGrounded )
 				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-			
+
+			if (Input.GetKeyDown("y")){
+				dodgeForce = movement*1500;
+			}
+
 			movement *= speed;
 			vertMovement = vertMovement * airSpeed;
-			myRigidBody.AddForce (movement + vertMovement);
+			myRigidBody.AddForce (movement + vertMovement + dodgeForce);
 
 		}  else if (playerNumber == 3) {
 			if( Input.GetButtonDown("Jump3") && isGrounded ){
@@ -167,10 +176,12 @@ public class InputController : MonoBehaviour {
 			float moveVertical = Input.GetAxis ("Vertical3");
 			if( isGrounded )
 				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-			
+			if (Input.GetKeyDown("z")){
+				dodgeForce = movement*1500;
+			}
 			movement *= speed;
 			vertMovement = vertMovement * airSpeed;
-			myRigidBody.AddForce (movement + vertMovement);
+			myRigidBody.AddForce (movement + vertMovement + dodgeForce);
 			
 		} else if (playerNumber == 4) {
 			if( Input.GetButtonDown("Jump4") && isGrounded ){
@@ -181,10 +192,12 @@ public class InputController : MonoBehaviour {
 			float moveVertical = Input.GetAxis ("Vertical4");
 			if( isGrounded )
 				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-			
+			if (Input.GetKeyDown("v")){
+					dodgeForce = movement*1500;
+				}
 			movement *= speed;
 			vertMovement = vertMovement * airSpeed;
-			myRigidBody.AddForce (movement + vertMovement);
+			myRigidBody.AddForce (movement + vertMovement + dodgeForce);
 			
 		}
 		lastPosition = transform.position;
