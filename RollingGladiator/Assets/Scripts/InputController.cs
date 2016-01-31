@@ -32,7 +32,7 @@ public class InputController : MonoBehaviour {
 	public Image guiImage;
 	public Sprite popup1;
 
-	List<GameObject> players;
+	public List<GameObject> players;
 
 	public bool isGrounded;
 
@@ -158,6 +158,34 @@ public class InputController : MonoBehaviour {
 			vertMovement = vertMovement * airSpeed;
 			myRigidBody.AddForce (movement + vertMovement);
 
+		}  else if (playerNumber == 3) {
+			if( Input.GetButtonDown("Jump3") && isGrounded ){
+				vertMovement = Vector3.up;
+				isGrounded = false;
+			}
+			float moveHorizontal = Input.GetAxis ("Horizontal3");
+			float moveVertical = Input.GetAxis ("Vertical3");
+			if( isGrounded )
+				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			
+			movement *= speed;
+			vertMovement = vertMovement * airSpeed;
+			myRigidBody.AddForce (movement + vertMovement);
+			
+		} else if (playerNumber == 4) {
+			if( Input.GetButtonDown("Jump4") && isGrounded ){
+				vertMovement = Vector3.up;
+				isGrounded = false;
+			}
+			float moveHorizontal = Input.GetAxis ("Horizontal4");
+			float moveVertical = Input.GetAxis ("Vertical4");
+			if( isGrounded )
+				movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			
+			movement *= speed;
+			vertMovement = vertMovement * airSpeed;
+			myRigidBody.AddForce (movement + vertMovement);
+			
 		}
 		lastPosition = transform.position;
 

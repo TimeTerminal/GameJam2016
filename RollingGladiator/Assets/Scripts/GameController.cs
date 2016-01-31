@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameController : MonoBehaviour {
-	public GameObject powerup;
+	/*public GameObject powerup;
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < 3; i++) {
@@ -22,5 +22,5 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-	}
+	}*/
 }
