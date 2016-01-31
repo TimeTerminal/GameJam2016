@@ -29,7 +29,8 @@ public class InputController : MonoBehaviour {
 	CharacterController controller;
 	public Rigidbody myRigidBody;
 
-	public Text guiText;
+	public Image guiImage;
+	public Sprite popup1;
 
 	List<GameObject> players;
 
@@ -182,7 +183,7 @@ public class InputController : MonoBehaviour {
 
 				if (myRigidBody.velocity.magnitude > 15)
 				{
-					StartCoroutine(ShowMessage("SMASH", 0.3f));
+					StartCoroutine(ShowMessage (popup1, 0.3f));;
 					SlowTime();
 				}
 
@@ -204,11 +205,21 @@ public class InputController : MonoBehaviour {
 		Time.timeScale = 0.01f;
 	}
 
-	IEnumerator ShowMessage (string message, float delay) {
-		guiText.text = message;
-		guiText.enabled = true;
+	IEnumerator ShowMessage (Sprite message, float delay) {
+		guiImage.sprite = message;
+		guiImage.enabled = true;
+		Color c = guiImage.GetComponent<Image> ().color;
+		c.a = 1;
+		guiImage.GetComponent<Image> ().color = c;
+		Vector3 op = guiImage.GetComponent<Image> ().transform.position;
+		Vector3 pp = op + new Vector3(Random.Range(-10.0F, 10.0F), 0, Random.Range(-10.0F, 10.0F));
+		guiImage.GetComponent<Image> ().transform.position = pp;
 		yield return new WaitForSeconds(delay);
-		guiText.enabled = false;
+		guiImage.enabled = false;
+		c.a = 0;
+		guiImage.GetComponent<Image> ().color = c;
+		guiImage.GetComponent<Image> ().transform.position = op;
+		//guiImage.GetComponent<Image>(). color.a =  0;
 	}
 
 	void OnCollision(Collision other){
