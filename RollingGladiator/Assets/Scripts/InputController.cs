@@ -10,6 +10,9 @@ public class InputController : MonoBehaviour {
 	public float speed;
 	public float airSpeed;
 
+	public float testA;
+	public float testB;
+
 	float currentBulletTimer = 0;
 
 	Vector3 heading;
@@ -126,8 +129,8 @@ public class InputController : MonoBehaviour {
 				SlowTime();
 
 
-				XInputDotNetPure.GamePad.SetVibration(0, 0, 1);
-
+				GamePad.SetVibration(0,testA,testB);
+				
 				
 				Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 
