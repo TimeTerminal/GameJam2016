@@ -155,7 +155,7 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Player" ) {
 			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
 				Debug.Log ("hit"+ playerNumber);
-				StartCoroutine(ShowMessage("SMASH", 0.3f));
+				//StartCoroutine(ShowMessage("SMASH", 0.3f));
 				SlowTime();
 
 				if (xboxRemote) {
@@ -177,12 +177,12 @@ public class InputController : MonoBehaviour {
 		Time.timeScale = 0.01f;
 	}
 
-	IEnumerator ShowMessage (string message, float delay) {
-		guiText.text = message;
-		guiText.enabled = true;
-		yield return new WaitForSeconds(delay);
-		guiText.enabled = false;
-	}
+//	IEnumerator ShowMessage (string message, float delay) {
+//		guiText.text = message;
+//		guiText.enabled = true;
+//		yield return new WaitForSeconds(delay);
+//		guiText.enabled = false;
+//	}
 
 	void OnCollision(Collision other){
 		if (other.gameObject.tag == "Ground") {
