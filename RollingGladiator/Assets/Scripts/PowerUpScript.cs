@@ -21,7 +21,7 @@ public class PowerUpScript : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			switch(powerUpType){
 				case "Mega": 
-					modeText.text = "HEAVY MASS";
+					//modeText.text = "HEAVY MASS";
 					
 					newScale = other.gameObject.transform.localScale;
 					newScale = newScale * 2;
@@ -31,7 +31,7 @@ public class PowerUpScript : MonoBehaviour {
 				break;
 				
 				case "Mini":
-					modeText.text = "SMALL MODE";
+					//modeText.text = "SMALL MODE";
 				
 					newScale = other.gameObject.transform.localScale;
 					newScale = newScale / 2;
