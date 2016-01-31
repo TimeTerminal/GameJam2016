@@ -57,6 +57,7 @@ public class InputController : MonoBehaviour {
 			currentBulletTimer = 0;
 			Time.timeScale = 1.0f;
             GamePad.SetVibration(playerIndex, 0.0f, 0.0f);
+            GamePad.SetVibration(0, 0.0f, 0.0f);
         }
 
 		if (!playerIndexSet || !prevState.IsConnected)
@@ -153,9 +154,9 @@ public class InputController : MonoBehaviour {
 				StartCoroutine(ShowMessage("SMASH", 0.3f));
 				SlowTime();
 
-
+                
+                GamePad.SetVibration(0, 1.0f, 1.0f);
                 GamePad.SetVibration(playerIndex, 1.0f, 1.0f);
-
                 Camera.main.GetComponent<CameraScript>().shake = 0.75f;
 
 
