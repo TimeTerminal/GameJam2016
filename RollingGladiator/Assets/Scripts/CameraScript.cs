@@ -37,11 +37,13 @@ public class CameraScript : MonoBehaviour {
 		cameraPos.y = 0;
 		
 		foreach (GameObject player in players) {
-			if (Vector3.Distance(centerPos, player.transform.position) > cameraPos.y) {
-				cameraPos.y = Vector3.Distance(centerPos, player.transform.position);
-			}
-			if (i == 1){
-				cameraPos.y = 10;
+			if(player.transform.position.y > 0){
+				if (Vector3.Distance(centerPos, player.transform.position) > cameraPos.y) {
+					cameraPos.y = Vector3.Distance(centerPos, player.transform.position);
+				}
+				if (i == 1){
+					cameraPos.y = 10;
+				}
 			}
 		}
 
