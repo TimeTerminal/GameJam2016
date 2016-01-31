@@ -44,7 +44,7 @@ public class CameraScript : MonoBehaviour {
 				if (i == 1){
 					cameraPos.y = 10;
 				}
-			}
+			} 
 		}
 
 		//cameraPos.x -= cameraPos.y;
