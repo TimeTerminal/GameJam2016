@@ -1,0 +1,297 @@
+fileFormatVersion: 2
+guid: 242b21341df935a49986399248900e6e
+timeCreated: 1454195735
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: _UNKNOWN_REF_NODE_fosterParent1 1
+    100002: Body
+    100004: HEad
+    100006: pCylinder2
+    100008: polySurface1
+    100010: polySurface10
+    100012: polySurface11
+    100014: polySurface12
+    100016: polySurface13
+    100018: polySurface14
+    100020: polySurface15
+    100022: polySurface16
+    100024: polySurface17
+    100026: polySurface18
+    100028: polySurface19
+    100030: polySurface2
+    100032: polySurface20
+    100034: polySurface21
+    100036: polySurface22
+    100038: polySurface23
+    100040: polySurface24
+    100042: polySurface3
+    100044: polySurface4
+    100046: polySurface5
+    100048: polySurface6
+    100050: polySurface7
+    100052: polySurface8
+    100054: polySurface9
+    100056: //RootNode
+    400000: _UNKNOWN_REF_NODE_fosterParent1 1
+    400002: Body
+    400004: HEad
+    400006: pCylinder2
+    400008: polySurface1
+    400010: polySurface10
+    400012: polySurface11
+    400014: polySurface12
+    400016: polySurface13
+    400018: polySurface14
+    400020: polySurface15
+    400022: polySurface16
+    400024: polySurface17
+    400026: polySurface18
+    400028: polySurface19
+    400030: polySurface2
+    400032: polySurface20
+    400034: polySurface21
+    400036: polySurface22
+    400038: polySurface23
+    400040: polySurface24
+    400042: polySurface3
+    400044: polySurface4
+    400046: polySurface5
+    400048: polySurface6
+    400050: polySurface7
+    400052: polySurface8
+    400054: polySurface9
+    400056: //RootNode
+    2300000: polySurface1
+    2300002: polySurface10
+    2300004: polySurface11
+    2300006: polySurface12
+    2300008: polySurface13
+    2300010: polySurface14
+    2300012: polySurface15
+    2300014: polySurface16
+    2300016: polySurface17
+    2300018: polySurface18
+    2300020: polySurface19
+    2300022: polySurface2
+    2300024: polySurface20
+    2300026: polySurface21
+    2300028: polySurface22
+    2300030: polySurface23
+    2300032: polySurface24
+    2300034: polySurface3
+    2300036: polySurface4
+    2300038: polySurface5
+    2300040: polySurface6
+    2300042: polySurface7
+    2300044: polySurface8
+    2300046: polySurface9
+    3300000: polySurface1
+    3300002: polySurface10
+    3300004: polySurface11
+    3300006: polySurface12
+    3300008: polySurface13
+    3300010: polySurface14
+    3300012: polySurface15
+    3300014: polySurface16
+    3300016: polySurface17
+    3300018: polySurface18
+    3300020: polySurface19
+    3300022: polySurface2
+    3300024: polySurface20
+    3300026: polySurface21
+    3300028: polySurface22
+    3300030: polySurface23
+    3300032: polySurface24
+    3300034: polySurface3
+    3300036: polySurface4
+    3300038: polySurface5
+    3300040: polySurface6
+    3300042: polySurface7
+    3300044: polySurface8
+    3300046: polySurface9
+    4300000: polySurface4
+    4300002: polySurface5
+    4300004: polySurface6
+    4300006: polySurface7
+    4300008: polySurface8
+    4300010: polySurface9
+    4300012: polySurface10
+    4300014: polySurface11
+    4300016: polySurface12
+    4300018: polySurface13
+    4300020: polySurface14
+    4300022: polySurface15
+    4300024: polySurface1
+    4300026: polySurface2
+    4300028: polySurface3
+    4300030: polySurface16
+    4300032: polySurface17
+    4300034: polySurface18
+    4300036: polySurface19
+    4300038: polySurface20
+    4300040: polySurface21
+    4300042: polySurface22
+    4300044: polySurface23
+    4300046: polySurface24
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves:
+      - name: Curve
+        curve:
+          serializedVersion: 2
+          curve:
+          - time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: 1
+            value: .054999996
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          preInfinity: 2
+          postInfinity: 2
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface4
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface5
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface6
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface7
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface8
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface9
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface10
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface11
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface12
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface13
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface14
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/Body/polySurface15
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface1
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface2
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface3
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface16
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface17
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface18
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface19
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface20
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface21
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface22
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface23
+        weight: 1
+      - path: _UNKNOWN_REF_NODE_fosterParent1 1/pCylinder2/HEad/polySurface24
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: Body
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
