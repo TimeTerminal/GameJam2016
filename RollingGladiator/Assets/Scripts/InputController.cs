@@ -152,6 +152,11 @@ public class InputController : MonoBehaviour {
 		if (collision.gameObject.tag == "Ground") {
 			isGrounded = true;
 		}
+
+		if (collision.gameObject.tag == "GrandSlam") {
+			Camera.main.GetComponent<CameraScript>().shake = 0.75f;
+		}
+
 		if (collision.gameObject.tag == "Player" ) {
 			if( collision.gameObject.GetComponent<InputController>().instantaneousVelocity() < instantaneousVelocity() && myState != "hit" ){
 				Debug.Log ("hit"+ playerNumber);
