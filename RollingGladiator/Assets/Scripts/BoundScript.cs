@@ -21,15 +21,14 @@ public class BoundScript : MonoBehaviour {
 			//other.gameObject.transform.position = new Vector3( 0, 4, 0 );
 			//other.gameObject.GetComponent<InputController>().myRigidBody.velocity = Vector3.zero;
 
-<<<<<<< HEAD
-=======
-			other.gameObject.transform.position = new Vector3( 0, 4, 0 );
+
+			/*other.gameObject.transform.position = new Vector3( 0, 4, 0 );
 			other.gameObject.GetComponent<InputController>().myRigidBody.velocity = Vector3.zero;
 			if (other.gameObject.tag == "Player") {
 				other.transform.position = new Vector3( Random.Range(1.0f, 10.0f), Random.Range(1.0f, 10.0f), 0 );
 				other.GetComponent<InputController>().myRigidBody.velocity = Vector3.zero;
-			}
->>>>>>> origin/master
+			}*/
+
 		}
 	}
 
